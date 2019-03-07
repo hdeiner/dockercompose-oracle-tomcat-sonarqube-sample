@@ -1,0 +1,33 @@
+version: '3.3'
+
+services:
+  oracle:
+    image: xrdj6c/oracle-11g-xe
+    container_name: oracle
+    networks:
+      - backend
+    ports:
+      - "1521:1521"
+      - "8081:8080"
+    restart: always
+    environment:
+      ORACLE_ALLOW_REMOTE: "true"
+  tomcat:
+    image: tomcat:9.0.8-jre8
+    container_name: tomcat
+    networks:
+      - backend
+    ports:
+      - "8080:8080"
+    restart: always
+  sonarqube:
+    image: sonarqube
+    container_name: sonarqube
+    networks:
+      - backend
+    ports:
+      - "9000:9000"
+    restart: always
+networks:
+  backend:
+    driver: bridge
