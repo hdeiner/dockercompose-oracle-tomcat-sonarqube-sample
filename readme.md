@@ -1,18 +1,22 @@
 This project demonstrates a way to build and test directly on the desktop command line (and by implication, on CI servers as well) between an Oracle database and a Tomcat application.  Sonarqube is also locally incorporated for static code analysis.
 
 ```bash
-./build_and_test.sh
+./build_create.sh
 ```
 1. Docker-compose containers for Oracle, Tomcat, and Sonarqube to life.
 2. Wait appropriately for the containers to start and be ready for operations.
 3. Build a liquibase.properties file and invoke Liquibase to create the test database.
-4. Build the Tomcat war to test along with an oracleConfig.properties to configure the app to the database it needs.
-5. Deploy those two artifacts to Tomcat.
-6. Perform a smoke test against the integrated system.
-7. Build the rest_webservice.properties file used by our Cucumber tests. 
-8. Run the full integration regression test suite (Cucumber for Java used).
-9. Run the Sonarqube analysis 
-10. Enjoy the results!
+
+```bash
+./build_create.sh
+```
+1. Build the Tomcat war to test along with an oracleConfig.properties to configure the app to the database it needs.
+2. Deploy those two artifacts to Tomcat.
+3. Perform a smoke test against the integrated system.
+4. Build the rest_webservice.properties file used by our Cucumber tests. 
+5. Run the full integration regression test suite (Cucumber for Java used).
+6. Run the Sonarqube analysis 
+7. Enjoy the results!
 ![Image of Sonarqube](readme.md.sonarqube.screenshot.png)
 
 ```bash
